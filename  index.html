@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shake the Snowflakes</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Shake Your Phone!</h1>
+    <div id="snowflakes" style="width: 300px; height: 300px; margin: auto;"></div>
+
+    <!-- Add the Lottie animation library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+        // Load your snowflake animation
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('snowflakes'), // Where to display
+            renderer: 'svg',
+            loop: true,
+            autoplay: false, // Don't start until we shake
+            path: 'your-snowflakes.json' // Replace with the correct path
+        });
+
+        // Only run on mobile devices
+        if (/Mobi|iPhone|iPad|Android/i.test(navigator.userAgent)) {
+    window.addEventListener("devicemotion", (event) => {
+        alert("Motion detected!");
+    });
+} else {
+    alert("Not a mobile device.");
+}
+    </script>
+</body>
+</html>
